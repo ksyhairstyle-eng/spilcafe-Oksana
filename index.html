@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spilcafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1><img src="images/logo.svg" alt="Spilcafe Logo"></h1>
+         <div class="sog">
+        <label for="sog-felt"></label>
+        <input type="text" id="sog-felt" placeholder="Søg efter spil...">
+        <button id="sog-knap">Søg</button>
+    </div>
+    </header>
+
+
+    <!-- Kategorier -->
+    <div class="kontroller">
+    <details class="filterMenu">
+        <summary>Filtrer spil</summary>
+        <div class="filterIndhold">
+
+    <fieldset id="kategori-filter">
+        <legend>Vælg kategorier</legend>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Mord mysterie">
+            Mord mysterie
+        </label>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Selskab">
+            Selskab
+        </label>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Brug kroppen">
+            Brug kroppen
+        </label>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Kortspil">
+            Kortspil
+        </label>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Gammeldags">
+            Gammeldags
+        </label>
+
+        <label>
+            <input type="checkbox" name="kategori" value="Brain twister">
+            Brain twister
+        </label>
+    </fieldset>
+
+    <!-- Sværhedsgrad -->
+    <fieldset id="svaerhedsgrad-filter">
+        <legend>Vælg sværhedsgrad</legend>
+
+        <label>
+            <input type="radio" name="rating" value="" checked>
+            Alle
+        </label>
+
+        <label>
+            <input type="radio" name="rating" value="Let">
+            Let
+        </label>
+
+        <label>
+            <input type="radio" name="rating" value="Mellem">
+            Mellem
+        </label>
+
+        <label>
+            <input type="radio" name="rating" value="Svær">
+            Svær
+        </label>
+    </fieldset>
+
+     <!-- Tid -->
+      <!-- Silje laver slider til tid i dropdown menu-->
+      <div class="filter-group">
+    <label for="spilletid">Maks. varighed</label>
+    <input type="range" id="spilletid" min="10" max="90" value="90">
+    <!-- Input type range = laver selve slideren -->
+     <span id="spilletid-value">90 min</span> 
+
+       
+</div>
+
+        <!-- Antal spillere -->
+<div class="filter-group">
+    <p class="filter-label">Antal spillere</p>
+
+    <div class="spillere-range">
+        <input
+            type="number"
+            id="min-spillere"
+            min="1"
+            step="1"
+            placeholder="Min. spillere"
+            aria-label="Mindste antal spillere"
+        >
+
+        <span>-</span>
+
+        <input
+            type="number"
+            id="max-spillere"
+            min="1"
+            step="1"
+            placeholder="Maks. spillere"
+            aria-label="Største antal spillere"
+        >
+    </div>
+</div>
+        <div class="filter-footer">
+                    <button id="apply-filters" class="apply-button">Nulstil filtre</button>
+                </div>
+                
+        </div>
+     </details>
+
+
+<div class="sortering">
+    <label for="sortering">Sortér efter</label>
+    <select id="sortering">
+        <option value="titel">Titel A-Å</option>
+        <option value="spilletid">Kortest spilletid</option>
+    </select>
+</div>
+</div>
+    <div id="spil-liste"></div>
+
+<script src="games.js"></script>
+<script src="script.js"></script>
+<script src="search.js"></script>
+<script src="filter.js"></script>
+<script src="sort.js"></script>
+</body>
+</html>

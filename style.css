@@ -1,0 +1,296 @@
+:root{
+    --beige:#fff6e9;
+    --morkeblaa:#1e2a3a;
+    --lysblaa:#50b0bc;
+    --orange:#ffc845;
+    --roed:#ff6f61;
+    --groen:#11c043;
+    --blaa:#3970ba;
+    --hvid:#fff;
+}
+
+body{
+    background-color: var(--hvid);
+    color:#1e2a3a;
+    font-family:sans-serif;
+}
+
+#spil-liste{
+    padding:16px;
+}
+
+#spilletid{
+    width: 100%;
+    accent-color: var(--lysblaa);
+}
+
+.raekke{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding-bottom:16px;
+}
+
+.kort{
+    background-color:var(--beige);
+    border-radius:24px;
+    padding:12px;
+    overflow:hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    flex: 0 0 220px;
+}
+
+.kort img{
+    width:100%;
+    height:200px;
+    object-fit:contain;
+    padding:20px;
+    box-sizing:border-box;
+    border-radius:0 0 30px 30px;
+    background-image:url("images/terning.svg"), url("images/terning.svg");
+    background-repeat:repeat;
+    background-size:60px 60px;
+    background-position:0 0, 30px 30px;
+}
+
+/* CSS til filter menu */
+.filterMenu{
+    position: relative;
+    display: inline-block; 
+}
+
+
+
+.tag{
+    display:inline-block;
+    background-color:#ffc845;
+    padding:4px 10px;
+    border-radius:99px;
+    font-size:15px;
+}
+
+.kort[data-category="Brug kroppen"] img{
+    background-color:#ffc845;
+    border-radius:12px;
+}
+
+.kort[data-category="Mord mysterie"] img{
+    background-color:#ff6f61;
+    border-radius:12px;
+}
+
+.kort[data-category="Selskab"] img{
+    background-color:#50b0bc;
+    border-radius:12px;
+}
+
+.kort[data-category="Kortspil"] img{
+    background-color:#1e2a3a;
+    border-radius:12px;
+}
+
+.kort[data-category="Gammeldags"] img{
+    background-color:#11c043;
+    border-radius:12px;
+}
+
+.kort[data-category="Brain twister"] img{
+    background-color:#3970ba;
+    border-radius:12px;
+}
+
+
+.sog{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:16px 0;
+    justify-content:center;
+}
+
+.sog input{
+    padding:10px 16px;
+    border: 1.5px solid #50b0bc;
+    border-radius:99px;
+    font-size:16px;
+    width:250px;
+}
+
+.sog button {
+    padding:10px 20px;
+    background-color:#50b0bc;
+    color:#1e2a3a;
+    border:none;
+    border-radius:99px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+header{
+    text-align:center;
+    padding:16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img{
+    width:120px;
+    border-radius:16px;
+}
+
+
+.filterMenu summary{
+  display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff6e9;
+    border: 1.5px solid #50b0bc;
+    border-radius:99px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.filterIndhold{
+    background-color: #fff6e9;
+    border-radius: 24px;
+    padding: 20px;
+    margin-top:12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.filterIndhold fieldset{
+    border:none;
+    padding:0;
+    margin-bottom:16px;
+}
+
+.filterIndhold legend{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.filterMenu[open] .filterIndhold{
+    position:fixed;
+    left:auto;
+    right:16px;
+    bottom:16px;
+    top:auto;
+    width:90%;
+    max-width:500px;
+    margin:0;
+    border-radius:24px;
+    max-height: 80vh;
+    overflow-y:auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index:10;
+    animation: glid-op 0.3s ease;
+    border:none;
+    flex-direction:column;
+    align-items:stretch;
+}
+
+
+@keyframes glid-op{
+    from {transform: translateY(100%);}
+    to {transform: translateY(0);}
+}
+
+@keyframes glid-ned{
+    from {transform: translateY(0);}
+    to {transform: translateY(120%);}
+}
+
+.filterMenu.lukker .filterIndhold{
+    animation: glid-ned 0.3s ease forwards;
+}
+#kategori-filter label{
+    display:inline-block;
+    padding: 6px 14px;
+    margin:4px;
+    border:1.5px solid #50b0bc;
+    border-radius:99px;
+    cursor:pointer;
+    background-color: white;
+}
+
+#kategori-filter input{
+    display:none;
+}
+
+#kategori-filter label:has(input:checked){
+    background-color: #ffc845;
+    border-color:#ffc845
+}
+
+#svaerhedsgrad-filter label{
+    display:inline-block;
+    padding: 6px 14px;
+    margin:4px;
+    border:1.5px solid #50b0bc;
+    border-radius:99px;
+    cursor:pointer;
+    background-color: white;
+}
+
+#svaerhedsgrad-filter input{
+    display:none;
+}
+
+#svaerhedsgrad-filter label:has(input:checked){
+    background-color: #ffc845;
+    border-color:#ffc845
+}
+
+.spillere-range{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.spillere-range input{
+    flex:1;
+    padding: 8px 14px;
+    border: 1.5px solid #50b0bc;
+    border-radius:99px;
+    font-size:14px;
+}
+
+.apply-button{
+    width:100%;
+    margin-top: 8px;
+    padding:12px;
+    background-color:#50b0bc;
+    color:#1e2a3a;
+    border:none;
+    border-radius:99px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.filter-footer{
+    width:100%;
+}
+
+.kontroller{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px;
+}
+
+.sortering select{
+    padding:8px 16 px;
+    border: 1.5px solid #50b0bc;
+    border-radius: 99px;
+    background-color: #fff6e9;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.kort h3{
+    margin:4px 0;
+}
+
+.kort p{
+    margin:4px 0;
+}
